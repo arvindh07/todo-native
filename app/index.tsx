@@ -1,13 +1,18 @@
 import Body from "@/components/Body";
 import Header from "@/components/Header";
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, TouchableWithoutFeedback, Keyboard } from "react-native";
 
 export default function Index() {
+  const dismissKeyboard = () => {
+    Keyboard.dismiss();
+  }
   return (
-    <View style={styles.container}>
-      <Header />
-      <Body />
-    </View>
+    <TouchableWithoutFeedback onPress={dismissKeyboard}>
+      <View style={styles.container}>
+        <Header />
+        <Body dismissKeyboard={dismissKeyboard}/>
+      </View>
+    </TouchableWithoutFeedback>
   );
 }
 

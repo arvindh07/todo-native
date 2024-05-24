@@ -3,7 +3,10 @@ import { FlatList, StyleSheet, View } from "react-native";
 import TodoItem from "./TodoItem";
 import InputTodo from "./InputTodo";
 
-const Body = () => {
+interface BodyProps{
+    dismissKeyboard: () => void;
+}
+const Body = ({dismissKeyboard}: BodyProps) => {
     const [todoList, setTodoList] = useState([
         {key: 1, text: "Buy me a coffee", complete: false},
         {key: 2, text: "Do exercise", complete: false},
@@ -21,6 +24,7 @@ const Body = () => {
     }
 
     const additemHandler = (text: string) => {
+        dismissKeyboard();
         const newTodoItem = {
             key: todoList?.length + 1,
             text: text,
