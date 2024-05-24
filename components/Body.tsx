@@ -1,16 +1,21 @@
 import React, { useState } from "react";
-import { FlatList, StyleSheet, Text, View } from "react-native";
-import TodoItem, { Item } from "./TodoItem";
+import { FlatList, StyleSheet, View } from "react-native";
+import TodoItem from "./TodoItem";
 
 const Body = () => {
     const [todoList, setTodoList] = useState([
-        {key: 1, text: "Buy me a coffee"},
-        {key: 2, text: "Do exercise"},
-        {key: 3, text: "Complete Mern"}
+        {key: 1, text: "Buy me a coffee", complete: false},
+        {key: 2, text: "Do exercise", complete: false},
+        {key: 3, text: "Complete Mern", complete: false}
     ]);
 
     const deleteItemHandler = (key: number) => {
-        const newTodoList = todoList?.filter((item) => item.key !== key);
+        const newTodoList = todoList?.map((item) => {
+            if(item?.key === key){
+                item.complete = true;
+            }
+            return item;
+        });
         setTodoList(newTodoList);
     }
 

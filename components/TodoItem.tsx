@@ -8,13 +8,14 @@ interface TodoProps {
 export interface Item {
     key: number;
     text: string;
+    complete: boolean;
 }
 
 const TodoItem = ({ item, deleteItemHandler }: TodoProps) => {
     return (
         <TouchableOpacity onPress={() => deleteItemHandler(item?.key)} >
             <View style={styles.todoContainer}>
-                <Text style={styles?.text}>{item?.text}</Text>
+                <Text style={item?.complete ? styles?.done : styles?.notDone}>{item?.text}</Text>
             </View>
         </TouchableOpacity>
     )
@@ -28,11 +29,19 @@ const styles = StyleSheet.create({
         backgroundColor: "cornflowerblue",
         borderRadius: 6
     },
-    text: {
+    done: {
         fontSize: 18,
         color: "white",
         fontWeight: 600,
         letterSpacing: 2,
+        textDecorationLine: "line-through"
+    },
+    notDone: {
+        fontSize: 18,
+        color: "white",
+        fontWeight: 600,
+        letterSpacing: 2,
+        textDecorationLine: "none"
     }
 })
 
