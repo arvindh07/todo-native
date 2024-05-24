@@ -20,9 +20,19 @@ const Body = () => {
         setTodoList(newTodoList);
     }
 
+    const additemHandler = (text: string) => {
+        const newTodoItem = {
+            key: todoList?.length + 1,
+            text: text,
+            complete: false
+        };
+        const newTodoList = [{...newTodoItem}, ...todoList];
+        setTodoList(newTodoList);
+    }    
+
     return (
         <View style={styles.bodyContainer}>
-            <InputTodo />
+            <InputTodo additemHandler={additemHandler} />
             <FlatList 
                 data={todoList}
                 renderItem={({item}: any) => <TodoItem item={item} deleteItemHandler={deleteItemHandler} />} 

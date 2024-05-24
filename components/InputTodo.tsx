@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { Button, StyleSheet, TextInput, View } from "react-native";
 
-const InputTodo = () => {
+interface AddProps {
+    additemHandler: (text: string) => void;
+};
+
+const InputTodo = ({additemHandler}: AddProps) => {
     const [text, setText] = useState<string>("");
 
     return (
@@ -11,7 +15,10 @@ const InputTodo = () => {
                 value={text}
                 onChangeText={setText}
                 placeholder="add todo..." />
-            <Button title="Add" color={"black"}/>
+            <Button title="Add" color={"black"} onPress={() => {
+                additemHandler(text);
+                setText("");
+            }} />
         </View>
     )
 };
