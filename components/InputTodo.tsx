@@ -1,0 +1,33 @@
+import React, { useState } from "react";
+import { Button, StyleSheet, TextInput, View } from "react-native";
+
+const InputTodo = () => {
+    const [text, setText] = useState<string>("");
+
+    return (
+        <View style={styles.inputContainer}>
+            <TextInput
+                style={styles.input}
+                value={text}
+                onChangeText={setText}
+                placeholder="add todo..." />
+            <Button title="Add" color={"black"}/>
+        </View>
+    )
+};
+
+const styles = StyleSheet.create({
+    inputContainer: {
+        flexDirection: "row",
+        justifyContent: "center",
+        marginVertical: 15
+    },
+    input: {
+        borderColor: "black",
+        borderWidth: 2,
+        paddingHorizontal: 15,
+        paddingVertical: 8
+    }
+})
+
+export default InputTodo;

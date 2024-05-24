@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
 import TodoItem from "./TodoItem";
+import InputTodo from "./InputTodo";
 
 const Body = () => {
     const [todoList, setTodoList] = useState([
@@ -21,6 +22,7 @@ const Body = () => {
 
     return (
         <View style={styles.bodyContainer}>
+            <InputTodo />
             <FlatList 
                 data={todoList}
                 renderItem={({item}: any) => <TodoItem item={item} deleteItemHandler={deleteItemHandler} />} 
