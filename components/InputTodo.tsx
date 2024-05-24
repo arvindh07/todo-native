@@ -27,13 +27,15 @@ const styles = StyleSheet.create({
     inputContainer: {
         flexDirection: "row",
         justifyContent: "center",
-        marginVertical: 15
+        alignItems: "center",
+        marginVertical: 15,
     },
     input: {
         borderColor: "black",
         borderWidth: 2,
         paddingHorizontal: 15,
-        paddingVertical: 8
+        paddingVertical: 3,
+        width: "50%",
     }
 })
 
