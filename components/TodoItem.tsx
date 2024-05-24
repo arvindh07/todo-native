@@ -32,14 +32,14 @@ const styles = StyleSheet.create({
     done: {
         fontSize: 18,
         color: "white",
-        fontWeight: 600,
+        fontWeight: "600",
         letterSpacing: 2,
         textDecorationLine: "line-through"
     },
     notDone: {
         fontSize: 18,
         color: "white",
-        fontWeight: 600,
+        fontWeight: "600",
         letterSpacing: 2,
         textDecorationLine: "none"
     }
