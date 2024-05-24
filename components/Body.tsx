@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
-import TodoItem from "./TodoItem";
+import { FlatList, StyleSheet, Text, View } from "react-native";
+import TodoItem, { Item } from "./TodoItem";
 
 const Body = () => {
     const [todoList, setTodoList] = useState([
@@ -11,9 +11,10 @@ const Body = () => {
 
     return (
         <View style={styles.bodyContainer}>
-            {todoList?.map((item) => (
-                <TodoItem key={item?.key} item={item} />
-            ))}
+            <FlatList 
+                data={todoList}
+                renderItem={({item}: any) => <TodoItem item={item} />} 
+                />
         </View>
     )
 }

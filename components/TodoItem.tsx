@@ -4,7 +4,7 @@ import { Text, View, StyleSheet, Touchable } from "react-native";
 interface TodoProps {
     item: Item
 }
-interface Item {
+export interface Item {
     key: number;
     text: string;
 }
