@@ -1,18 +1,22 @@
 import React from "react";
-import { Text, View, StyleSheet, Touchable } from "react-native";
+import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
 
 interface TodoProps {
-    item: Item
+    item: Item;
+    deleteItemHandler: (x: number) => void;
 }
 export interface Item {
     key: number;
     text: string;
 }
-const TodoItem = ({ item }: TodoProps) => {
+
+const TodoItem = ({ item, deleteItemHandler }: TodoProps) => {
     return (
-        <View style={styles.todoContainer}>
-            <Text style={styles?.text}>{item?.text}</Text>
-        </View>
+        <TouchableOpacity onPress={() => deleteItemHandler(item?.key)} >
+            <View style={styles.todoContainer}>
+                <Text style={styles?.text}>{item?.text}</Text>
+            </View>
+        </TouchableOpacity>
     )
 };
 

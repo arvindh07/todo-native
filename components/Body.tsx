@@ -9,11 +9,16 @@ const Body = () => {
         {key: 3, text: "Complete Mern"}
     ]);
 
+    const deleteItemHandler = (key: number) => {
+        const newTodoList = todoList?.filter((item) => item.key !== key);
+        setTodoList(newTodoList);
+    }
+
     return (
         <View style={styles.bodyContainer}>
             <FlatList 
                 data={todoList}
-                renderItem={({item}: any) => <TodoItem item={item} />} 
+                renderItem={({item}: any) => <TodoItem item={item} deleteItemHandler={deleteItemHandler} />} 
                 />
         </View>
     )
