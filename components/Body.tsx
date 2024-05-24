@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
+import TodoItem from "./TodoItem";
 
 const Body = () => {
     const [todoList, setTodoList] = useState([
@@ -10,9 +11,8 @@ const Body = () => {
 
     return (
         <View style={styles.bodyContainer}>
-            {/* <Text style={styles.text}>Body text</Text> */}
             {todoList?.map((item) => (
-                <Text key={item?.key} style={styles.text}>{item?.text}</Text>
+                <TodoItem key={item?.key} item={item} />
             ))}
         </View>
     )
@@ -24,11 +24,6 @@ const styles = StyleSheet.create({
         marginTop: 10,
         backgroundColor: "#0000001f",
         padding: 10
-    },
-    text: {
-        color: "black",
-        fontSize: 18,
-        fontFamily: "cursive"
     }
 });
 
